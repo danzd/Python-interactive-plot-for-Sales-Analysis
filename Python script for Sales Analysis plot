@@ -1,0 +1,24 @@
+import plotly.express as px 
+import plotly.offline as pyo
+import pandas as pd
+
+
+
+df=pd.read_csv(r'C:\Users\Desktop\sample_data2.csv')
+
+fig = px.scatter(data_frame=df,
+           x='Profit',
+           y='Units Sold',
+           size='Sales Count',
+           color='Region',
+           title='Sales Analysis',
+           animation_frame='Year',
+           hover_name='Country',
+           range_x=(10000,600000),
+           range_y=(-500, 100000),
+           size_max=50)
+
+
+#fig.show()
+
+pyo.plot(fig, filename='sales_analysis.html')
